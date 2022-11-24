@@ -1,0 +1,6 @@
+allure-pytest
+pytest
+requests
+py-zabbix
+beautifulsoup4
+pytest-rerunfailures
