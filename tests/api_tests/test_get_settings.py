@@ -2,7 +2,6 @@ import allure
 from api import *
 
 
-@allure.id("12626")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -14,7 +13,6 @@ def test_get_settings_account_200(created_accounts):
     assert response.status_code == 200, f'Ответ сервера отличается от ожидаемого -- f{response.json()}'
 
 
-@allure.id("12627")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -27,7 +25,6 @@ def test_get_settings_account_404(created_accounts):
                                         f' отправке пустого запроса -- f{response.json()}'
 
 
-@allure.id("12628")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')

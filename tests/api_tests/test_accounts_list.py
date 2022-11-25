@@ -2,7 +2,6 @@ import allure
 from api import *
 
 
-@allure.id("12598")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -15,7 +14,6 @@ def test_allowed_accounts_in_conf_200(created_accounts, created_conferences):
     assert response.status_code == 200, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12599")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -27,7 +25,6 @@ def test_accounts_list_200(created_accounts):
     assert response.status_code == 200, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12600")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -39,7 +36,6 @@ def test_accounts_list_401(created_accounts):
     assert response.status_code == 401, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12601")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')

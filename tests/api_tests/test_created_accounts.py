@@ -30,7 +30,6 @@ def test_created_accounts_number_201(number):
     assert number in response.json()['data']['account']['number'], 'Номер созданного аккаунта отличается от заданного'
 
 
-@allure.id("12607")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -47,7 +46,6 @@ def test_created_accounts_type_201(number, types):
     assert response.json()['data']['account']['type'] == types, 'Тип созданного аккаунта отличается от заданного'
 
 
-@allure.id("12608")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -64,7 +62,6 @@ def test_created_accounts_description_201(number, description):
         'Описание созданного аккаунта отличается от заданного'
 
 
-@allure.id("12610")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -80,7 +77,6 @@ def test_created_accounts_password_201(number, password):
         'Описание созданного аккаунта отличается от заданного'
 
 
-@allure.id("12611")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -108,7 +104,6 @@ def test_created_accounts_email_201(number, mail):
         'Email созданного аккаунта отличается от заданного'
 
 
-@allure.id("12612")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -126,7 +121,6 @@ def test_created_accounts_bandwidth_201(number, bandwidth):
         'Ширина канала созданного аккаунта отличается от заданного'
 
 
-@allure.id("12613")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -141,7 +135,6 @@ def test_created_accounts_resolution_201(number, resolution):
         'Разрешение видео потока созданного аккаунта отличается от заданного'
 
 
-@allure.id("12614")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -165,7 +158,6 @@ def test_created_accounts_default_resolution_201(number, defaultResolution):
         'Разрешение видео потока созданного аккаунта отличается от заданного'
 
 
-@allure.id("12615")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -181,7 +173,6 @@ def test_created_accounts_behind_nat_201(number, behindNat, types):
         'Настройка проключать видеокодеки видео потока созданного аккаунта отличается от заданного'
 
 
-@allure.id("12616")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -197,7 +188,6 @@ def test_created_accounts_ip_201(number, ip, types):
         'Настройка ip созданного аккаунта отличается от заданного'
 
 
-@allure.id("12617")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -213,7 +203,6 @@ def test_created_accounts_port_201(number, port, types):
         'Настройка port созданного аккаунта отличается от заданного'
 
 
-@allure.id("12618")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -228,7 +217,6 @@ def test_created_accounts_transport_201(number, transport):
         'Настройка port созданного аккаунта отличается от заданного'
 
 
-@allure.id("12619")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -243,7 +231,6 @@ def test_created_accounts_insecure_201(number, insecure):
         'Настройка insecure созданного аккаунта отличается от заданного'
 
 
-@allure.id("12620")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -258,7 +245,6 @@ def test_created_accounts_bfcp_type_201(number, bfcpType):
         'Настройка insecure созданного аккаунта отличается от заданного'
 
 
-@allure.id("12621")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -274,7 +260,6 @@ def test_created_accounts_dtmf_201(number, types, dtmf):
         'Настройка insecure созданного аккаунта отличается от заданного'
 
 
-@allure.id("12622")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -315,7 +300,6 @@ def test_created_accounts_settings_bool_201(number, param, items):
     assert_expected_result(response, param, items, expected_code=201)
 
 
-@allure.id("12623")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -402,7 +386,6 @@ def test_accounts_created_account_422(number, test_data):
                                         f'--- [{param}, {value}] === {response.json()}'
 
 
-@allure.id("12624")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -414,7 +397,6 @@ def test_created_accounts_403(number, created_accounts):
     assert response.status_code == 403, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12625")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
