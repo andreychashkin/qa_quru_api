@@ -1,4 +1,0 @@
-[submodule "api"]
-	path = api
-	url = git@git.vinteo.com:qa/api.git
-	branch = master

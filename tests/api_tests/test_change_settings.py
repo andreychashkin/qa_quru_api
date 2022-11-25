@@ -3,7 +3,6 @@ import pytest
 from api import *
 
 
-@allure.id("12605")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -180,7 +179,6 @@ def test_accounts_change_settings(created_accounts, test_data):
     assert_expected_result(response, param, value, rez)
 
 
-@allure.id("12603")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -196,7 +194,6 @@ def test_accounts_change_settings_401(created_accounts):
         f'настрое абонента --- {account}, response --- {response.json()}'
 
 
-@allure.id("12604")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -208,7 +205,6 @@ def test_accounts_change_settings_404(created_accounts):
     assert response.status_code == 404, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12605")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')

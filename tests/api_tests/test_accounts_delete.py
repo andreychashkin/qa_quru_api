@@ -2,7 +2,6 @@ import allure
 from api import *
 
 
-@allure.id("12591")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -15,7 +14,6 @@ def test_delete_account_200(created_accounts):
     assert response.status_code == 200, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12592")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -27,7 +25,6 @@ def test_delete_account_404(created_accounts):
     assert response.status_code == 404, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12593")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -39,7 +36,6 @@ def test_delete_account_401(created_accounts):
     assert response.status_code == 401, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12594")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -51,7 +47,6 @@ def test_delete_account_403(created_accounts):
     assert response.status_code == 403, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12595")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -63,7 +58,6 @@ def test_delete_accounts_200(created_accounts):
     assert response.status_code == 201, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12596")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
@@ -75,7 +69,6 @@ def test_delete_accounts_401(created_accounts):
     assert response.status_code == 401, f"Ответ сервера отличается от ожидаемого response = {response.json()}"
 
 
-@allure.id("12597")
 @allure.feature('API')
 @allure.story('API ALL')
 @allure.suite('Аккаунты')
