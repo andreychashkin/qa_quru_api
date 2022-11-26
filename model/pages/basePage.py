@@ -12,4 +12,4 @@ def go_main_page():
 
 def go_acounts_page():
     with allure.step('Переходим на страницу Абонентов'):
-        return browser.open('/spa#/accounts')
+        return browser.open('/accounts#')
