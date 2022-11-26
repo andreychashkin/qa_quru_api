@@ -10,7 +10,3 @@ def auth(login=TestData.login, password=TestData.password):
         browser.element('#loginForm [name="username"]').type(login)
         browser.element('#loginForm [name="password"]').type(password)
         browser.element('#loginForm [type="submit"]').click()
-        time.sleep(10)
-    
-
-
