@@ -19,6 +19,7 @@ def start_conference(call_all: bool = False) -> None:
             with allure.step("Чекбокс вызвать всех"):
                 browser.element('[name=run] .btn-slider').click()
         browser.element('[name=run] [type=submit]').click()
+        time.sleep(1)
 
 
 def add_participant(number: str) -> None:
@@ -28,3 +29,29 @@ def add_participant(number: str) -> None:
         browser.element("#conference-fast-add-participants-account-select [type=text]").type(number)
         browser.element(f"//*[text()='{number}']").click()
         browser.element('#fakesubmit[name=submit]').should(be.clickable).click()
+        time.sleep(1)
+
+
+def fast_call(number: str, 
+              type: str = None,
+              resolution: str = None,
+              fps: str = None,
+              speed: str = None):
+    """Выполняем быстрый вызов в конференцию. 
+    Без указания параметров используются базовые"""
+    with allure.step("Открываем окно быстрого вызова"):
+        browser.element("[data-target='#modal_call']").click()
+    with allure.step("Указываем параметры вызова"):
+        browser.element('[name=number]').type(number)
+        if type:
+            browser.element('#wraper #callTypeBtn').click()
+            browser.element(f'li a[data-type={type}]').click()
+        if resolution:
+            browser.element('[name=resolution]').type(resolution)
+        if fps:
+            browser.element('[name=fps]').type(fps)
+        if speed:
+            browser.element('[name=speed]').type(speed)
+    with allure.step("Выполняем вызов"):
+        browser.element('#submitCall').click()
+        time.sleep(4)

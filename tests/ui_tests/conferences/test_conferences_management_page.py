@@ -44,5 +44,34 @@ def test_add_participant(management, participant):
     auth()
     open_conference_management_page(management)
     add_participant(participant)
+    browser.save_screenshot('./screenshots/conferences/')
     assert get_value(Api().get_conferences_list(search=management), 'total') > 0, \
         """Список участников конференции пуст, участник не добавлен в конференцию"""
+
+
+@pytest.fixture()
+def fast_call_in_conference(management):
+    Api().create_conference(number=management, 
+                            description='fast_call_test')
+    Api().start_conference(management)
+    yield management
+    Api().delete_conference(management)
+
+
+@allure.feature('UI')
+@allure.story('UI ALL')
+@allure.suite('Конференции')
+@allure.tag('autotests', 'ui')
+@allure.title('Быстрый вызов анонимного участника в конференцию')
+@pytest.mark.parametrize('types', ['SIP', 'H323'])
+@pytest.mark.parametrize('resolutions', ['FULLHD', '720p', 'CIF'])
+@pytest.mark.parametrize('fps', ['25', '30', '15'])
+@pytest.mark.parametrize('speed', ['1536', '512', '320'])
+def test_fast_call(fast_call_in_conference, types, resolutions, fps, speed):
+    auth()
+    open_conference_management_page(fast_call_in_conference)
+    fast_call(number=TestData.second_ip, type=types, resolution=resolutions, fps=fps, speed=speed)
+    browser.save_screenshot('./screenshots/conferences/')
+    assert get_value(Api().get_conferences_list(search=fast_call_in_conference), 'online') > 0, \
+        """Список подключенных участников конференции пуст,
+         быстрый вызов не выполнен"""
