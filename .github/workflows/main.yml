@@ -18,8 +18,13 @@ jobs:
     # name - название шага
     # в github actions будет выводиться название шага, и процессы
     steps:
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
       - name: Api 🛎️
-        run: pytest tests/ui_tests/
+        run: pytest tests/
         env:
           SERVER_IP: 'demo.vinteo.com'
           LOGIN: ${{ secrets.LOGIN }}
