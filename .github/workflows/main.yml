@@ -2,7 +2,7 @@ name: QaGuru
 
 on:
   push:
-    branches: [ master ]Waiting for a runner to pick up this job...pytest
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
