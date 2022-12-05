@@ -6,15 +6,14 @@ on: [push, pull_request]
 jobs:
   test-ubuntu:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.8"]
     
 
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+
       - name: Install
         run: |
-          ls -lah
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
