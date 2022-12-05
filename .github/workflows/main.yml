@@ -1,4 +1,4 @@
-name: Run Selenium On GitHub Action
+name: TestsVinteo
 on:
   workflow_dispatch:
 jobs:
@@ -19,6 +19,9 @@ jobs:
         run: |
           sudo apt purge google-chrome-stable
           pip install -r requirements.txt
+
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
 
       - name: Api 🛎️
         run: pytest tests/ui_tests/conferences/test_conferences_list_page.py::test_search_and_open_conference
