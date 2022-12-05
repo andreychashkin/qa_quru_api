@@ -16,12 +16,8 @@ jobs:
     # в github actions будет выводиться название шага, и процессы
     steps:
       - name: Api 🛎️
-        run: pytest tests/api/tests/accounts/
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.QA_GURU_D }}
-          BRANCH: gh-pages
-          FOLDER: public
-          CLEAN: true
+        run: pytest tests/ui_tests/
+        env:
+          SERVER_IP: 'demo.vinteo.com'
+          LOGIN: ${{ secrets.LOGIN }}
+          PASSWORD: ${{ secrets.PASSWORD }}
