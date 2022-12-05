@@ -18,7 +18,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Api 🛎️
-        run: pytest tests/
+        run: pytest tests/ui_tests/
         env:
           SERVER_IP: 'demo.vinteo.com'
           LOGIN: ${{ secrets.LOGIN }}
