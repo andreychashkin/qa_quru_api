@@ -2,14 +2,17 @@ name: QaGuru
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master ]Waiting for a runner to pick up this job...pytest
   pull_request:
     branches: [ master ]
 
 # выполняемые действия
 jobs:
   build-and-deploy:
-    runs-on: nestandarta/git_python3.8_ubuntu
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8"]
     
     # запускаются по шагам
     # name - название шага

@@ -2,15 +2,15 @@ import os
 
 
 if os.environ.get('SERVER_IP') is None:
-    ip_server = ''
+    ip_server = 'demo.vinteo.com'
 else:
     ip_server = os.environ.get('SERVER_IP')
 if os.environ.get('LOGIN') is None:
-    login = ''
+    login = 'admin'
 else:
     login = os.environ.get('LOGIN')
 if os.environ.get('PASSWORD') is None:
-    password = ''
+    password = '654321'
 else:
     password = os.environ.get('PASSWORD')
 if os.environ.get('SECOND_IP') is None:
