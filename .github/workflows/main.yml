@@ -16,7 +16,9 @@ jobs:
       - name: Installing package list
         run: apt list --installed
       - name: Removing previous chrome instances on runner
-        run: sudo apt purge google-chrome-stable
+        run: |
+          sudo apt purge google-chrome-stable
+          pip install -r requirements.txt
 
       - name: Api 🛎️
         run: pytest tests/ui_tests/conferences/test_conferences_list_page.py::test_search_and_open_conference
@@ -24,3 +26,4 @@ jobs:
           SERVER_IP: 'demo.vinteo.com'
           LOGIN: ${{ secrets.LOGIN }}
           PASSWORD: ${{ secrets.PASSWORD }}
+        path: ./allure-results
