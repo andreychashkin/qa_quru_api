@@ -2,6 +2,10 @@ import pytest
 from selene.support.shared import browser
 from api import *
 import time
+from pyvirtualdisplay import Display
+
+display = Display(visible=0, size=(1920, 1024))
+display.start()
 
 
 @pytest.fixture(scope='function', autouse=True)
