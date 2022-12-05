@@ -2,7 +2,7 @@ name: TestsVinteo
 on:
   workflow_dispatch:
 jobs:
-  scrape:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checking out repo
@@ -23,7 +23,14 @@ jobs:
         run: sudo apt-get install xvfb
 
       - name: Api 🛎️
-        run: pytest tests/ui_tests/conferences/test_conferences_list_page.py::test_search_and_open_conference
+        run: pytest tests/api_tests/
+        env:
+          SERVER_IP: 'demo.vinteo.com'
+          LOGIN: ${{ secrets.LOGIN }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+
+      - name: UI Firefox 🛎️
+        run: pytest tests/ui_tests/
         env:
           SERVER_IP: 'demo.vinteo.com'
           LOGIN: ${{ secrets.LOGIN }}
