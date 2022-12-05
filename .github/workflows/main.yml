@@ -18,7 +18,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Api 🛎️
-        run: pytest tests/ui_tests/conferences
+        run: pytest tests/ui_tests/conferences/test_conferences_list_page.py::test_search_and_open_conference
         env:
           SERVER_IP: 'demo.vinteo.com'
           LOGIN: ${{ secrets.LOGIN }}

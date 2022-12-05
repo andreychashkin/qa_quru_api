@@ -5,3 +5,4 @@ py-zabbix
 beautifulsoup4
 pytest-rerunfailures
 selene>=2.0.0b8
+pyvirtualdisplay
