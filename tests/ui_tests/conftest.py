@@ -28,7 +28,6 @@ def setup():
         options=options
     )
     browser.config.driver = driver
-    browser.config.timeout = 10
     browser.config.base_url = f'https://demo.vinteo.com'
     browser.config.window_width = 1920
     browser.config.window_height = 900
