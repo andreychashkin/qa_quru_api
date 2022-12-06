@@ -64,9 +64,9 @@ def fast_call_in_conference(management):
 @allure.tag('autotests', 'ui')
 @allure.title('Быстрый вызов анонимного участника в конференцию')
 @pytest.mark.parametrize('types', ['SIP', 'H323'])
-@pytest.mark.parametrize('resolutions', ['FULLHD', '720p', 'CIF'])
-@pytest.mark.parametrize('fps', ['25', '30', '15'])
-@pytest.mark.parametrize('speed', ['1536', '512', '320'])
+@pytest.mark.parametrize('resolutions', ['720p', 'CIF'])
+@pytest.mark.parametrize('fps', ['25', '15'])
+@pytest.mark.parametrize('speed', ['512', '320'])
 def test_fast_call(fast_call_in_conference, types, resolutions, fps, speed):
     auth()
     open_conference_management_page(fast_call_in_conference)
