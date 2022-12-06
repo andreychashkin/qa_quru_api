@@ -22,12 +22,12 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
 
-#      - name: Api 🛎️
-#        run: pytest tests/api_tests/
-#        env:
-#          SERVER_IP: 'demo.vinteo.com'
-#          LOGIN: ${{ secrets.LOGIN }}
-#          PASSWORD: ${{ secrets.PASSWORD }}
+      - name: Api 🛎️
+        run: pytest tests/api_tests/
+        env:
+          SERVER_IP: 'demo.vinteo.com'
+          LOGIN: ${{ secrets.LOGIN }}
+          PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: UI Firefox 🛎️
         run: pytest tests/ui_tests/
