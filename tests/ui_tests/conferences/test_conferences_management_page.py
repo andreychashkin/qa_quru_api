@@ -5,7 +5,7 @@ import pytest
 
 
 @pytest.fixture()
-def participant(open_server):
+def participant(setup):
     number = str(acc_num_generation())
     Api().create_account(number=number, description=generate_random_string(10))
     yield number
@@ -13,7 +13,7 @@ def participant(open_server):
 
 
 @pytest.fixture()
-def management(open_server):
+def management(setup):
     number = str(conf_num_generation())
     Api().create_conference(description='Поиск конференции', number=number)
     yield number
