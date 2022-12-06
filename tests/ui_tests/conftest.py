@@ -1,10 +1,10 @@
 import pytest
 from selene.support.shared import browser
-from pyvirtualdisplay import Display
+# from pyvirtualdisplay import Display
 from api import *
 
-display = Display(visible=False, size=(1920, 1100))
-display.start()
+# display = Display(visible=False, size=(1920, 1100))
+# display.start()
 
 
 @pytest.fixture(scope='function', autouse=True)
