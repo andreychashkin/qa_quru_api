@@ -1,11 +1,10 @@
 from model.pages import *
-from selene.support.shared import browser
 from api import *
 import pytest
 
 
 @pytest.fixture()
-def conference_number(open_server):
+def conference_number(setup):
     conference_number = conf_num_generation()
     yield conference_number
     Api().delete_conference(conference_number)
@@ -34,7 +33,7 @@ def test_created_conference_description(conference_number, description):
 
 
 @pytest.fixture()
-def search_conference(open_server):
+def search_conference(setup):
     number = str(conf_num_generation())
     Api().create_conference(description='Поиск конференции', number=number)
     yield number
