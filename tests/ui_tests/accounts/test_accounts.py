@@ -17,7 +17,7 @@ def account_number():
 @allure.tag('autotests', 'ui')
 @allure.title('Создание аккаунта')
 @pytest.mark.parametrize('types_account', ['SIP', 'H323', 'WS'])
-@pytest.mark.parametrize('bandwidth', ['512', '1536', '4096', '6144'])
+@pytest.mark.parametrize('bandwidth', ['512', '1536', '6144'])
 def test_created_account(open_server, account_number, types_account, bandwidth):
     auth()
     go_acounts_page()
