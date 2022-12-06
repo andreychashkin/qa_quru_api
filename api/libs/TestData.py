@@ -19,6 +19,8 @@ else:
     second_ip = os.environ.get('SECOND_IP')
 if os.environ.get('BROWSER') is None:
     selene_browser = 'chrome'
+else:
+    selene_browser = os.environ.get('BROWSER')
 
 if os.environ.get('CALL_IP') is None:
     call_ip = '10.23.9.59:4567'
