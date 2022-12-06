@@ -19,8 +19,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Install xvfb
-        run: sudo apt-get install xvfb
+#      - name: Install xvfb
+#        run: sudo apt-get install xvfb
 
       - name: Api 🛎️
         run: pytest tests/api_tests/
@@ -29,12 +29,12 @@ jobs:
           LOGIN: ${{ secrets.LOGIN }}
           PASSWORD: ${{ secrets.PASSWORD }}
 
-      - name: UI Firefox 🛎️
-        run: pytest tests/ui_tests/
-        env:
-          SERVER_IP: 'demo.vinteo.com'
-          LOGIN: ${{ secrets.LOGIN }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+#      - name: UI Firefox 🛎️
+#        run: pytest tests/ui_tests/
+#        env:
+#          SERVER_IP: 'demo.vinteo.com'
+#          LOGIN: ${{ secrets.LOGIN }}
+#          PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
