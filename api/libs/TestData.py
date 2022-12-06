@@ -7,11 +7,11 @@ if os.environ.get('SERVER_IP') is None:
 else:
     ip_server = os.environ.get('SERVER_IP')
 if os.environ.get('LOGIN') is None:
-    login = 'admin'
+    login = ''
 else:
     login = os.environ.get('LOGIN')
 if os.environ.get('PASSWORD') is None:
-    password = '654321'
+    password = ''
 else:
     password = os.environ.get('PASSWORD')
 if os.environ.get('SECOND_IP') is None:
