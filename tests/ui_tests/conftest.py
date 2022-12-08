@@ -11,7 +11,7 @@ from selenium import webdriver
 
 
 @pytest.fixture()
-def setup():
+def setup_br():
     options = Options()
     selenoid_capabilities = {
         "browserName": TestData.selene_browser,
@@ -39,7 +39,7 @@ def setup():
 
 
 @pytest.fixture(scope='function', autouse=True)
-def open_browser(setup):
+def open_browser(setup_br):
     browser.open('/')
     yield
     browser.quit()

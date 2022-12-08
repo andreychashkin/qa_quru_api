@@ -33,7 +33,7 @@ def test_created_conference_description(conference_number, description):
 
 
 @pytest.fixture()
-def search_conference(setup):
+def search_conference():
     number = str(conf_num_generation())
     Api().create_conference(description='Поиск конференции', number=number)
     yield number
