@@ -5,7 +5,7 @@ import pytest
 
 
 @pytest.fixture()
-def participant(setup):
+def participant():
     number = str(acc_num_generation())
     Api().create_account(number=number, description=generate_random_string(10))
     yield number
@@ -13,7 +13,7 @@ def participant(setup):
 
 
 @pytest.fixture()
-def management(setup):
+def management():
     number = str(conf_num_generation())
     Api().create_conference(description='Поиск конференции', number=number)
     yield number
@@ -26,7 +26,7 @@ def management(setup):
 @allure.tag('autotests', 'ui')
 @allure.title('Запуск конференции')
 @pytest.mark.parametrize('call_all', [True, False])
-def test_start_conference(management, call_all):
+def test_start_conference(setup, management, call_all):
     auth()
     open_conference_management_page(management)
     start_conference(call_all=call_all)
@@ -40,7 +40,7 @@ def test_start_conference(management, call_all):
 @allure.suite('Конференции')
 @allure.tag('autotests', 'ui')
 @allure.title('Добавить участника конференции')
-def test_add_participant(management, participant):
+def test_add_participant(setup, management, participant):
     auth()
     open_conference_management_page(management)
     add_participant(participant)
@@ -67,7 +67,7 @@ def fast_call_in_conference(management):
 @pytest.mark.parametrize('resolutions', ['720p', 'CIF'])
 @pytest.mark.parametrize('fps', ['25', '15'])
 @pytest.mark.parametrize('speed', ['512', '320'])
-def test_fast_call(fast_call_in_conference, types, resolutions, fps, speed):
+def test_fast_call(setup, fast_call_in_conference, types, resolutions, fps, speed):
     auth()
     open_conference_management_page(fast_call_in_conference)
     fast_call(number=TestData.second_ip, type=types, resolution=resolutions, fps=fps, speed=speed)
