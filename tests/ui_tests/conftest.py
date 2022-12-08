@@ -10,7 +10,7 @@ from api import *
 from selenium import webdriver
 
 
-@pytest.fixture(scope='function', autouse=True)
+@pytest.fixture()
 def setup():
     options = Options()
     selenoid_capabilities = {

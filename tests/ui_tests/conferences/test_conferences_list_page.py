@@ -4,7 +4,7 @@ import pytest
 
 
 @pytest.fixture()
-def conference_number(setup):
+def conference_number():
     conference_number = conf_num_generation()
     yield conference_number
     Api().delete_conference(conference_number)
@@ -18,7 +18,7 @@ def conference_number(setup):
 @pytest.mark.parametrize('description', [generate_random_string(3),
                                          generate_random_string(10),
                                          generate_random_string(30)])
-def test_created_conference_description(conference_number, description):
+def test_created_conference_description(setup, conference_number, description):
     auth()
     open_conferences_page()
     open_the_conference_creation_window()
@@ -45,7 +45,7 @@ def search_conference(setup):
 @allure.suite('Конференции')
 @allure.tag('autotests', 'ui')
 @allure.title('Поиск конференции и переход к странице управления ею')
-def test_search_and_open_conference(search_conference):
+def test_search_and_open_conference(setup, search_conference):
     auth()
     open_conferences_page()
     type_to_search_confernece(search_conference)
