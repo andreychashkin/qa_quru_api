@@ -10,7 +10,7 @@ from api import *
 from selenium import webdriver
 
 
-@pytest.fixture()
+@pytest.fixture(scope='function', autouse=True)
 def setup_br():
     options = Options()
     selenoid_capabilities = {
@@ -29,20 +29,12 @@ def setup_br():
     )
     browser.config.driver = driver
     browser.config.base_url = f'https://demo.vinteo.com'
-    browser.config.window_width = 1920
+    browser.config.window_width = 1220
     browser.config.window_height = 900
+    browser.open('/')
     yield
     attach.add_html(browser)
     attach.add_screenshot(browser)
     attach.add_logs(browser)
     attach.add_video(browser)
-
-
-@pytest.fixture(scope='function', autouse=True)
-def open_browser(setup_br):
-    browser.open('/')
-    yield
     browser.quit()
-
-
-
