@@ -26,6 +26,6 @@ def test_created_account(account_number, types_account, bandwidth):
                                number=account_number,
                                description='test-description',
                                bandwidth=bandwidth)
-    browser.save_screenshot('./screenshots/accounts/')
+    # browser.save_screenshot('./screenshots/accounts/')
     assert get_value(Api().get_accounts_list(search=account_number), 'total') > 0, \
         'Созданный аккаунт отсутствует в списке абонентов сервера'

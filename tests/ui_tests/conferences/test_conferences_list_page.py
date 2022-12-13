@@ -24,7 +24,7 @@ def test_created_conference_description(conference_number, description):
     open_the_conference_creation_window()
     fill_form_conference_fields(number=conference_number,
                                 description=description)
-    browser.save_screenshot('./screenshots/conferences/')
+    # browser.save_screenshot('./screenshots/conferences/')
     assert len(
         get_value(
             Api().get_conferences_list(search=conference_number), 'conferences'
@@ -50,6 +50,6 @@ def test_search_and_open_conference(search_conference):
     open_conferences_page()
     type_to_search_confernece(search_conference)
     search_conference_in_table(search_conference, open=True)
-    browser.save_screenshot('./screenshots/conferences/')
+    # browser.save_screenshot('./screenshots/conferences/')
     assert search_conference in browser.driver.current_url, \
         'Url не вляется адресом страницы конференции'

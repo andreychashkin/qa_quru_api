@@ -30,7 +30,7 @@ def test_start_conference(management, call_all):
     auth()
     open_conference_management_page(management)
     start_conference(call_all=call_all)
-    browser.save_screenshot('./screenshots/conferences/')
+    # browser.save_screenshot('./screenshots/conferences/')
     assert get_value(Api().get_conferences_list(search=management), 'active'), \
         "Конференция не запущена"
 
@@ -44,7 +44,7 @@ def test_add_participant(management, participant):
     auth()
     open_conference_management_page(management)
     add_participant(participant)
-    browser.save_screenshot('./screenshots/conferences/')
+    # browser.save_screenshot('./screenshots/conferences/')
     assert get_value(Api().get_conferences_list(search=management), 'total') > 0, \
         """Список участников конференции пуст, участник не добавлен в конференцию"""
 
@@ -71,7 +71,7 @@ def test_fast_call(fast_call_in_conference, types, resolutions, fps, speed):
     auth()
     open_conference_management_page(fast_call_in_conference)
     fast_call(number=TestData.second_ip, type=types, resolution=resolutions, fps=fps, speed=speed)
-    browser.save_screenshot('./screenshots/conferences/')
+    # browser.save_screenshot('./screenshots/conferences/')
     assert get_value(Api().get_conferences_list(search=fast_call_in_conference), 'online') > 0, \
         """Список подключенных участников конференции пуст,
          быстрый вызов не выполнен"""
