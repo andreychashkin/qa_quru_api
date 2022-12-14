@@ -5,7 +5,7 @@ import pytest
 
 @pytest.fixture()
 def conference_number():
-    conference_number = conf_num_generation()
+    conference_number = str(conf_num_generation())
     yield conference_number
     Api().delete_conference(conference_number)
 
